@@ -30,6 +30,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px; /* Espaciado para móviles */
     }
 
     h1,
@@ -46,50 +47,54 @@
     main {
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      width: 100%;
+      max-width: 400px; /* Ancho máximo para móviles */
     }
 
     .container-letter {
       position: relative;
+      width: 100%;
     }
 
     .cover {
       position: absolute;
-      border-left: 200px solid transparent;
-      border-right: 200px solid transparent;
-      border-top: 100px solid #fe3334;
-      border-bottom: 100px solid transparent;
+      border-left: 150px solid transparent; /* Reducido para móviles */
+      border-right: 150px solid transparent; /* Reducido para móviles */
+      border-top: 75px solid #fe3334; /* Reducido para móviles */
+      border-bottom: 75px solid transparent; /* Reducido para móviles */
       transition: transform 0.75s;
       transform-origin: top;
     }
 
     .paper {
       position: absolute;
-      padding: 1.5rem;
-      line-height: 2rem;
+      padding: 1rem; /* Reducido para móviles */
+      line-height: 1.5rem; /* Reducido para móviles */
       right: 5px;
       z-index: -1;
       background: white;
-      width: 390px;
-      height: 180px;
+      width: 100%;
+      max-width: 300px; /* Reducido para móviles */
+      height: 150px; /* Reducido para móviles */
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: all 0.75s;
     }
 
     .letter {
-      border-left: 200px solid #ff989e;
-      border-right: 200px solid #ff989e;
-      border-top: 100px solid transparent;
-      border-bottom: 100px solid #ff858a;
+      border-left: 150px solid #ff989e; /* Reducido para móviles */
+      border-right: 150px solid #ff989e; /* Reducido para móviles */
+      border-top: 75px solid transparent; /* Reducido para móviles */
+      border-bottom: 75px solid #ff858a; /* Reducido para móviles */
     }
 
     .options {
       display: flex;
-      gap: 5rem;
+      gap: 2rem; /* Reducido para móviles */
+      margin-top: 1rem; /* Reducido para móviles */
     }
 
     .options button {
@@ -100,7 +105,7 @@
       padding: 0.5rem 1rem;
       border: 1px solid #fe3334;
       cursor: pointer;
-      transition: background 0.3s, color 0.3s;
+      font-size: 1rem; /* Ajustado para móviles */
     }
 
     .options button:hover {
@@ -121,7 +126,7 @@
         top: 0;
       }
       100% {
-        top: -120px;
+        top: -100px; /* Reducido para móviles */
       }
     }
 
@@ -131,7 +136,7 @@
 
     @keyframes closePaper {
       0% {
-        top: -120px;
+        top: -100px; /* Reducido para móviles */
       }
       100% {
         top: 0;
@@ -144,7 +149,7 @@
       top: 25%;
       left: 46.5%;
       margin: auto;
-      font-size: 3rem;
+      font-size: 2rem; /* Reducido para móviles */
       color: #fe3334;
       animation: crecer 1s forwards;
     }
@@ -166,7 +171,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 80px; /* Tamaño de la imagen */
+      width: 80px; /* Reducido para móviles */
       height: auto;
       z-index: 10;
       animation: fadeIn 0.5s ease-in-out;
@@ -180,6 +185,47 @@
       100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    /* Media queries para móviles */
+    @media (max-width: 600px) {
+      .cover {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-top: 50px solid #fe3334;
+        border-bottom: 50px solid transparent;
+      }
+
+      .paper {
+        padding: 0.75rem;
+        line-height: 1.25rem;
+        max-width: 250px;
+        height: 120px;
+      }
+
+      .letter {
+        border-left: 100px solid #ff989e;
+        border-right: 100px solid #ff989e;
+        border-top: 50px solid transparent;
+        border-bottom: 50px solid #ff858a;
+      }
+
+      .options {
+        gap: 1rem;
+      }
+
+      .options button {
+        font-size: 0.875rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .heart {
+        font-size: 1.5rem;
+      }
+
+      .spiderman-face {
+        width: 60px;
       }
     }
   </style>
