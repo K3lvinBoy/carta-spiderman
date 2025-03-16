@@ -1,240 +1,275 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta de Spiderman</title>
-  <style>
-    * {
-      min-width: 0;
-      font: inherit;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    img, video, svg {
-      display: block;
-      height: auto;
-      max-width: 100%;
-    }
-    body {
-      margin: 0;
-      min-height: 100dvh;
-      background-color: #fad7df;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    h1, h2, h3 {
-      text-wrap: balance;
-    }
-    p {
-      text-wrap: pretty;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      max-width: 400px;
-    }
-    .container-letter {
-      position: relative;
-      width: 100%;
-    }
-    .cover {
-      position: absolute;
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-top: 75px solid #fe3334;
-      border-bottom: 75px solid transparent;
-      transition: transform 0.75s;
-      transform-origin: top;
-    }
-    .paper {
-      position: absolute;
-      padding: 1rem;
-      line-height: 1.5rem;
-      right: 5px;
-      z-index: -1;
-      background: white;
-      width: 100%;
-      max-width: 300px;
-      height: 150px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: all 0.75s;
-      overflow-y: auto;
-      font-size: 14px;
-    }
-    .letter {
-      border-left: 150px solid #ff989e;
-      border-right: 150px solid #ff989e;
-      border-top: 75px solid transparent;
-      border-bottom: 75px solid #ff858a;
-    }
-    .options {
-      display: flex;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .options button {
-      color: #ff3234;
-      font-weight: 600;
-      border-radius: 3px;
-      background: #fad7df;
-      padding: 0.5rem 1rem;
-      border: 1px solid #fe3334;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .options button:hover {
-      background: #ff989e;
-      color: white;
-    }
-    .open-cover {
-      transform: rotatex(180deg);
-    }
-    .open-paper {
-      animation: openPaper 0.5s forwards;
-    }
-    @keyframes openPaper {
-      0% { top: 0; }
-      100% { top: -100px; }
-    }
-    .close-paper {
-      animation: closePaper 0.5s forwards;
-    }
-    @keyframes closePaper {
-      0% { top: -100px; }
-      100% { top: 0; }
-    }
-    .heart {
-      display: none;
-      position: absolute;
-      top: 25%;
-      left: 46.5%;
-      margin: auto;
-      font-size: 2rem;
-      color: #fe3334;
-      animation: crecer 1s forwards;
-    }
-    @keyframes crecer {
-      0% { scale: 1; opacity: 1; }
-      100% { scale: 3; opacity: 0; }
-    }
-    .spiderman-face {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80px;
-      height: auto;
-      z-index: 10;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    }
-    @media (max-width: 600px) {
-      .cover {
-        border-left: 100px solid transparent;
-        border-right: 100px solid transparent;
-        border-top: 50px solid #fe3334;
-        border-bottom: 50px solid transparent;
-      }
-      .paper {
-        padding: 0.75rem;
-        line-height: 1.25rem;
-        max-width: 250px;
-        height: 120px;
-      }
-      .letter {
-        border-left: 100px solid #ff989e;
-        border-right: 100px solid #ff989e;
-        border-top: 50px solid transparent;
-        border-bottom: 50px solid #ff858a;
-      }
-      .options {
-        gap: 1rem;
-      }
-      .options button {
-        font-size: 0.875rem;
-        padding: 0.4rem 0.8rem;
-      }
-      .heart {
-        font-size: 1.5rem;
-      }
-      .spiderman-face {
-        width: 60px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Especial para Ti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primario: #fff;
+            --fondo: #f9f5f9; /* Fondo suave */
+            --fondo-sobre: #f0e6f4; /* Color del sobre */
+            --solapa-sobre: #d8bfd8; /* Color de las solapas */
+            --cuerpo-sobre: #e6d4e6; /* Color del cuerpo del sobre */
+            --sombra: rgba(0, 0, 0, 0.1);
+            --texto: #4a4a4a; /* Color del texto */
+        }
+
+        body {
+            background: var(--fondo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            font-family: "Arial", sans-serif;
+        }
+
+        h1 {
+            font-family: "Pacifico", cursive; /* Fuente más romántica */
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #6b5b95; /* Color del título */
+        }
+
+        .contenedor {
+            width: 400px;
+            position: relative;
+        }
+
+        .envoltura-sobre {
+            position: relative;
+            background-color: var(--fondo-sobre);
+            box-shadow: 0 0 20px var(--sombra);
+            border-radius: 10px;
+        }
+
+        .sobre {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .sobre::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 4;
+            border-top: 180px solid var(--solapa-sobre);
+            border-right: 200px solid transparent;
+            border-left: 200px solid transparent;
+            transform-origin: top;
+            transition: all 0.5s ease-in-out 0.7s;
+            border-radius: 10px;
+        }
+
+        .solapa-derecha {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+            background-color: var(--cuerpo-sobre);
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .solapa-izquierda {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(0 0, 0 100%, 100% 100%);
+            background-color: var(--cuerpo-sobre);
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .carta {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primario);
+            text-align: center;
+            box-shadow: 0 0 10px var(--sombra);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+            display: none;
+        }
+
+        .contenido {
+            font-family: "Georgia", serif; /* Fuente más elegante */
+            color: var(--texto);
+            text-align: left;
+            font-size: 16px; /* Tamaño de letra aumentado */
+            border: 2px dashed var(--texto);
+            padding: 15px;
+            height: 100%;
+            line-height: 1.6;
+            cursor: pointer;
+            overflow-y: scroll;
+        }
+
+        /* Estilo para resaltar texto */
+        .contenido strong {
+            color: #ff6b6b; /* Color rojo para resaltar */
+            font-weight: bold;
+        }
+
+        /* Estilo para la imagen de Spider-Man */
+        .spider-sello {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px; /* Ajusta el tamaño según tu imagen */
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out 1s;
+        }
+
+        /* Clases dinámicas */
+        .abierto .sobre::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        .abierto .spider-sello {
+            transform: translate(-50%, -50%) rotate(90deg);
+            transition-delay: 0.4s;
+        }
+
+        .carta.mostrar-carta {
+            transform: translateY(-290px);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carta.cerrando-carta {
+            transform: translateY(-290px);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carta.abierta {
+            z-index: 10000;
+        }
+
+        .envoltura-sobre.desactivar-sobre .sobre::before {
+            pointer-events: none;
+        }
+
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--cuerpo-sobre);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--corazon);
+        }
+
+        /* Vista celular */
+        @media screen and (max-width: 400px) {
+            .contenedor {
+                width: 300px;
+            }
+
+            .sobre {
+                width: 300px;
+                height: 250px;
+            }
+
+            .sobre::before {
+                border-top: 150px solid var(--solapa-sobre);
+                border-right: 150px solid transparent;
+                border-left: 150px solid transparent;
+            }
+        }
+    </style>
 </head>
 <body>
-  <main>
-    <div class="container-letter">
-      <div class="cover"></div>
-      <span class="heart">♥</span>
-      <p class="paper" id="mainMessage">
-        Querida Janeth, Llevo días pensando en cómo expresarte esto de la mejor manera, porque es algo que siento con sinceridad. Quiero que sepas que me gustaría volver a enamorarte, construir algo bonito y duradero a tu lado. He reflexionado mucho sobre el pasado y reconozco que no era el mismo chico que conociste; antes era indeciso y no tenía claro lo que quería. Pero ahora estoy buscando algo bueno, algo verdadero, que no sea solo de un momento, sino que valga la pena. Quiero que sepas que no tengo intenciones de hacerte daño ni de jugar contigo. Al contrario, me gustaría tratarte como te mereces, con respeto y cariño, y ver si podemos construir algo juntos. Disculpa si soy muy directo o si algo de lo que dije no sonó bien, solo quería ser honesto contigo. Atentamente, Kevin
-      </p>
-      <div class="letter"></div>
+    <h1>Dale click al Sobre</h1>
+    <div class="contenedor">
+        <div class="envoltura-sobre">
+            <div class="sobre">
+                <div class="solapa-derecha"></div>
+                <div class="solapa-izquierda"></div>
+                <!-- Imagen de Spider-Man como sello -->
+                <img src="spider.png" alt="Sello de Spider-Man" class="spider-sello">
+            </div>
+            <div class="carta">
+                <div class="contenido">
+                    <p id="texto">
+                        <strong>Querida Janeth,</strong><br><br>
+                        Llevo días pensando en cómo expresarte esto de la mejor manera, porque es algo que siento con sinceridad. Quiero que sepas que me gustaría volver a enamorarte, construir algo bonito y bello. He reflexionado mucho sobre el pasado y reconozco que no era el mismo chico que conociste; antes era indeciso y no tenía claro lo que quería. Pero ahora estoy buscando algo bueno, algo verdadero, que no sea solo de un momento, sino que valga la pena. Quiero que sepas que no tengo intenciones de hacerte daño ni de jugar contigo. Al contrario, me gustaría tratarte como te mereces, con respeto y cariño, y ver si podemos construir algo juntos. Disculpa si soy muy directo o si algo de lo que dije no sonó bien, solo quería ser honesto contigo.<br><br>
+                        <strong>ATTE Kevin</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="options">
-      <button id="open">Abrir</button>
-      <button id="close">Cerrar</button>
-    </div>
-  </main>
-  <script>
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const messageCustom = urlSearchParams.get('message');
-    if (messageCustom) {
-      const mainMessageElement = document.querySelector('#mainMessage');
-      mainMessageElement.textContent = decodeURI(messageCustom);
-    }
-    const btnOpenElement = document.querySelector('#open');
-    const btnCloseElement = document.querySelector('#close');
-    btnCloseElement.disabled = true;
-    function showSpiderman() {
-      const spiderman = document.createElement('img');
-      spiderman.src = 'spider.png';
-      spiderman.classList.add('spiderman-face');
-      document.querySelector('.container-letter').appendChild(spiderman);
-      setTimeout(() => {
-        spiderman.remove();
-      }, 5000);
-    }
-    btnOpenElement.addEventListener('click', () => {
-      btnOpenElement.disabled = true;
-      btnCloseElement.disabled = false;
-      const coverElement = document.querySelector('.cover');
-      coverElement.classList.add('open-cover');
-      setTimeout(() => {
-        coverElement.style.zIndex = -1;
-        const paperElement = document.querySelector('.paper');
-        paperElement.classList.remove('close-paper');
-        paperElement.classList.add('open-paper');
-        showSpiderman();
-      }, 500);
-    });
-    btnCloseElement.addEventListener('click', () => {
-      btnOpenElement.disabled = false;
-      btnCloseElement.disabled = true;
-      const coverElement = document.querySelector('.cover');
-      const paperElement = document.querySelector('.paper');
-      paperElement.classList.remove('open-paper');
-      paperElement.classList.add('close-paper');
-      setTimeout(() => {
-        coverElement.style.zIndex = 0;
-        coverElement.classList.remove('open-cover');
-      }, 500);
-    });
-  </script>
+
+    <script>
+        const envoltura = document.querySelector(".envoltura-sobre");
+        const carta = document.querySelector(".carta");
+
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".sobre") ||
+                e.target.matches(".solapa-derecha") ||
+                e.target.matches(".solapa-izquierda") ||
+                e.target.matches(".spider-sello")) {
+                envoltura.classList.toggle("abierto");
+                envoltura.classList.add("desactivar-sobre");
+
+                if (!carta.classList.contains("abierta")) {
+                    setTimeout(() => {
+                        carta.classList.add("mostrar-carta");
+                        carta.style.display = "block";
+
+                        setTimeout(() => {
+                            carta.classList.remove("mostrar-carta");
+                            carta.classList.add("abierta");
+                        }, 500);
+                    }, 1000);
+                }
+            } else if (e.target.matches(".envoltura-sobre *")) {
+                envoltura.classList.remove("abierto");
+                envoltura.classList.remove("desactivar-sobre");
+                if (carta.classList.contains("abierta")) {
+                    carta.classList.add("cerrando-carta");
+
+                    setTimeout(() => {
+                        carta.classList.remove("cerrando-carta");
+                        carta.classList.remove("abierta");
+                        carta.style.display = "none";
+                    }, 500);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
